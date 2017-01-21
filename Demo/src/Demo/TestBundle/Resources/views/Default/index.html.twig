@@ -1,0 +1,7 @@
+Hello World!
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <a href="{{ path('fos_user_security_logout') }}">
+        Déconnexion
+</a>
+{{ render(controller('DemoTestBundle:Product:index')) }}
+{% endif %}
