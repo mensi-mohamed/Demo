@@ -5,3 +5,13 @@ Hello World!
 </a>
 {{ render(controller('DemoTestBundle:Product:index')) }}
 {% endif %}
+
+<a href="{{ path('weather_check')}}">
+    Check weather
+</a>
+{% if data is defined %}
+    {{data}} 
+    {% endif %}
+
+
+

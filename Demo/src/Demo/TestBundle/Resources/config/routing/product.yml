@@ -2,6 +2,11 @@ product_index:
     path:     /
     defaults: { _controller: "DemoTestBundle:Product:index" }
     methods:  GET
+    
+weather_check:
+    path:     /home
+    defaults: { _controller: "DemoTestBundle:Product:weather" }
+    methods:  GET
 
 product_show:
     path:     /{id}/show
