@@ -1,7 +1,10 @@
 demo_test_product:
     resource: "@DemoTestBundle/Resources/config/routing/product.yml"
     prefix:   /product
-
+    
+weather_check:
+    path:     /weather
+    defaults: { _controller: DemoTestBundle:Default:weather }
 demo_test_homepage:
     path:     /home
     defaults: { _controller: DemoTestBundle:Default:index }
@@ -9,3 +12,6 @@ demo_test_homepage:
 demo_test_accueil:
     path:     /
     defaults: { _controller: DemoTestBundle:Default:home }
+    
+
+

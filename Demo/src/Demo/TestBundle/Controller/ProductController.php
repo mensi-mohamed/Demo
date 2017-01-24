@@ -105,17 +105,7 @@ class ProductController extends Controller
 
         return $this->redirectToRoute('demo_test_homepage');
     }
-    public function weatherAction(){
-        $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://api.openweathermap.org/data/2.5/weather?q=paris&appid=ed56a35e6f32fc8b4608a6a568f3d9f4');
-            $result = curl_exec($ch);
-        $data=  json_decode($result);
-       
-        return $this->render('DemoTestBundle:Default:index.html.twig', array(
-            'data' => $data,
-        ));
-    }
-
+ 
     /**
      * Creates a form to delete a product entity.
      *
