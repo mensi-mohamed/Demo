@@ -2,8 +2,8 @@ Hello World!
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     <a href="{{ path('fos_user_security_logout') }}">
         Déconnexion
-</a>
-{{ render(controller('DemoTestBundle:Product:index')) }}
+    </a>
+    {{ render(controller('DemoTestBundle:Product:index')) }}
 {% endif %}
 
 <a href="{{ path('weather_check')}}">
@@ -13,7 +13,7 @@ Hello World!
 {% if data is defined %}
     Paris : 
     <br>
-    
+
     The description of the weather is : {{data['weather'][0]['description']}}
     <br>
     The temperature is : {{data['main']['temp']}}
@@ -22,7 +22,16 @@ Hello World!
     <br>
     the visibility is :{{data['visibility']}}
     <br>
-    {% endif %}
+{% endif %}
+<br>
+<a href="{{ path('ville_new') }}">Check the weather of your own town</a>
+<br>
+
+{% if form is defined %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endif %}
 
 
 

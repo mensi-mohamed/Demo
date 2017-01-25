@@ -12,6 +12,11 @@ demo_test_homepage:
 demo_test_accueil:
     path:     /
     defaults: { _controller: DemoTestBundle:Default:home }
+
+ville_new:
+    path:     /new
+    defaults: { _controller: "DemoTestBundle:Default:new" }
+    methods:  [GET, POST]
     
 
 
