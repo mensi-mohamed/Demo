@@ -28,11 +28,11 @@ class DefaultController extends Controller {
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
-        //var_dump($output);die;
+        $data = json_decode($output,true);
         curl_close($ch);
 
         return $this->render('DemoTestBundle:Default:index.html.twig', array(
-                    'data' => $output,
+                    'data' => $data,
         ));
     }
 

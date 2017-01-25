@@ -9,8 +9,19 @@ Hello World!
 <a href="{{ path('weather_check')}}">
     Check weather
 </a>
+<br>
 {% if data is defined %}
-    {{data}} 
+    Paris : 
+    <br>
+    
+    The description of the weather is : {{data['weather'][0]['description']}}
+    <br>
+    The temperature is : {{data['main']['temp']}}
+    <br>
+    max and min temperature : {{data['main']['temp_min']}} > {{data['main']['temp_max']}}
+    <br>
+    the visibility is :{{data['visibility']}}
+    <br>
     {% endif %}
 
 
