@@ -13,30 +13,31 @@ class DefaultController extends Controller {
     public function indexAction(Request $request) {
         $user = $this->getUser();
         if ($user) {
-             $ville = new Ville();
-        $form = $this->createForm('Demo\TestBundle\Form\VilleType', $ville);      
-       $form->handleRequest($request);
-        if ($form->isSubmitted()) {
-            var_dump('tets'); die;
-            $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'http://api.openweathermap.org/data/2.5/weather?q=paris&appid=ed56a35e6f32fc8b4608a6a568f3d9f4');
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = curl_exec($ch);
-        $data = json_decode($output, true);
+            $ville = new Ville();
+            $form = $this->createForm('Demo\TestBundle\Form\VilleType', $ville);
+            $form->handleRequest($request);
 
-        curl_close($ch);
+            if ($form->isSubmitted()) {
+                //$formPost = $request->request->get('form');
+//$name = $formPost['name'];
+                //$name = $request->get('form')['name'];
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'http://api.openweathermap.org/data/2.5/weather?q=paris&appid=ed56a35e6f32fc8b4608a6a568f3d9f4');
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $output = curl_exec($ch);
+                $data = json_decode($output, true);
 
-        return $this->render('DemoTestBundle:Default:index.html.twig', array(
-                    'data' => $data,
-        ));
-           
-            
-        }
-        return $this->render('DemoTestBundle:Default:index.html.twig',array(
-            'ville' => $ville,
-            'form' => $form->createView(),
-        ));
+                curl_close($ch);
+
+                return $this->render('DemoTestBundle:Default:index.html.twig', array(
+                            'data' => $data,
+                ));
+            }
+            return $this->render('DemoTestBundle:Default:index.html.twig', array(
+                        'ville' => $ville,
+                        'form' => $form->createView(),
+            ));
         }
         return new RedirectResponse($this->generateUrl('fos_user_security_login'));
     }
@@ -66,19 +67,17 @@ class DefaultController extends Controller {
      */
     public function newAction(Request $request) {
         $ville = new Ville();
-        $form = $this->createForm('Demo\TestBundle\Form\VilleType', $ville);      
+        $form = $this->createForm('Demo\TestBundle\Form\VilleType', $ville);
         //$form = $this->createFormBuilder($ville);
-       // $form = new VilleType($ville);
-       
+        // $form = new VilleType($ville);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
-          
-           
             
         }
-        return $this->render('DemoTestBundle:Default:index.html.twig',array(
-            'ville' => $ville,
-            'form' => $form->createView(),
+        return $this->render('DemoTestBundle:Default:index.html.twig', array(
+                    'ville' => $ville,
+                    'form' => $form->createView(),
         ));
     }
 
