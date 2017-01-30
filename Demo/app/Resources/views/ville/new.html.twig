@@ -1,0 +1,7 @@
+Hello
+{% if form is defined %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Check Weather" />
+    {{ form_end(form) }}
+{% endif %}

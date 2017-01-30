@@ -24,14 +24,9 @@ Hello World!
     <br>
 {% endif %}
 <br>
-<a href="{{ path('ville_new') }}">Check the weather of your own town</a>
+<!-- <a href="{{ path('ville_new') }}">Check the weather of your own town</a> -->
+<br>
+Check the weather of your own town :
 <br>
 
-{% if form is defined %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-{% endif %}
-
-
-
+{{ include('ville/new.html.twig') }}

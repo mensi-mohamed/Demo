@@ -4,16 +4,24 @@ namespace Demo\TestBundle\Entity;
 
  class Ville
 {
-    protected $ville;
+    protected $name;
+
+     protected $postal;
     
-    public function getVille() {
-        return $this->ville;
+    public function getName() {
+        return $this->name;
     }
-        
-    public function setVille($ville) {
-        $this->ville = $ville;
+
+    public function setName($name) {
+        $this->name = $name;
     }
-    
 
 
+     public function getPostal() {
+         return $this->postal;
+     }
+
+     public function setPostal($postal) {
+         $this->postal = $postal;
+     }
 }
