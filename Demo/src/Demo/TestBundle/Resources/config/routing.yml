@@ -17,6 +17,10 @@ ville_new:
     path:     /new
     defaults: { _controller: "DemoTestBundle:Default:new" }
     methods:  [GET, POST]
-    
+
+demo_test_pays:
+        resource: "@DemoTestBundle/Resources/config/routing/pays.yml"
+        prefix:   /pays
+
 
 
