@@ -3,7 +3,6 @@
 namespace Demo\TestBundle\Controller;
 
 use Demo\TestBundle\Entity\Ville;
-use Demo\TestBundle\Form\VilleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -11,12 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller {
 
-    public function indexAction() {
+    public function indexAction(Request $request) {
         $user = $this->getUser();
         if ($user) {
              $ville = new Ville();
         $form = $this->createForm('Demo\TestBundle\Form\VilleType', $ville);      
-       
+       $form->handleRequest($request);
         if ($form->isSubmitted()) {
             var_dump('tets'); die;
             $ch = curl_init();
